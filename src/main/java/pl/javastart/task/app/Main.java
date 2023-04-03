@@ -1,4 +1,4 @@
-package pl.javastart.task;
+package pl.javastart.task.app;
 
 public class Main {
 
@@ -11,7 +11,7 @@ public class Main {
         universityApp.createGroup("po-2022", "Programowanie Obiektowe", 1);
         universityApp.addStudentToGroup(179128, "pp-2022", "Marcin", "Abacki");
         universityApp.addStudentToGroup(179129, "pp-2022", "Adam", "Browarski");
-        universityApp.printAllStudents();
+        universityApp.addStudentToGroup(179129, "pp-2022", "Adam", "Browarski");
 
         universityApp.addGrade(179128, "pp-2022", 5);
         universityApp.addGrade(179129, "pp-2022", 5);
@@ -20,5 +20,6 @@ public class Main {
         universityApp.printGroupInfo("pp-2022");
         universityApp.printGradesForStudent(179128);
         universityApp.printGradesForGroup("pp-2022");
+        universityApp.printAllStudents();
     }
 }
