@@ -3,6 +3,7 @@ package pl.javastart.task;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import pl.javastart.task.app.UniversityApp;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -181,7 +182,7 @@ class UniversityAppTest {
         universityApp.addStudentToGroup(179128, groupCode, "Marcin", "Abacki");
 
         // when
-        universityApp.addGrade(179128, groupCode, 5.0);
+        universityApp.addGrade(5.0);
         universityApp.printGradesForStudent(179128);
 
         // then
@@ -197,7 +198,7 @@ class UniversityAppTest {
         universityApp.addStudentToGroup(179128, groupCode, "Marcin", "Abacki");
 
         // when
-        universityApp.addGrade(179128, groupCode, 5);
+        universityApp.addGrade(5);
         universityApp.printGradesForGroup("pp-2022");
 
         // then
@@ -207,7 +208,7 @@ class UniversityAppTest {
     @Test
     void shouldNotAddGradeWhenGroupDoesntExist() {
         // when
-        universityApp.addGrade(179128, "pp-2022", 5);
+        universityApp.addGrade(5);
 
         // then
         assertThat(outContent.toString()).contains("Grupa pp-2022 nie istnieje");
@@ -221,8 +222,8 @@ class UniversityAppTest {
         universityApp.createGroup("po-2022", "Programowanie Obiektowe", 1);
         universityApp.addStudentToGroup(179128, "pp-2022", "Marcin", "Abacki");
         universityApp.addStudentToGroup(179128, "po-2022", "Marcin", "Abacki");
-        universityApp.addGrade(179128, "pp-2022", 5.0);
-        universityApp.addGrade(179128, "po-2022", 5.5);
+        universityApp.addGrade(5.0);
+        universityApp.addGrade(5.5);
 
         // when
         universityApp.printGradesForStudent(179128);
@@ -239,8 +240,8 @@ class UniversityAppTest {
         universityApp.createGroup("pp-2022", "Podstawy Programowania", 1);
         universityApp.addStudentToGroup(179128, "pp-2022", "Marcin", "Abacki");
         universityApp.addStudentToGroup(179129, "pp-2022", "Adam", "Browarski");
-        universityApp.addGrade(179128, "pp-2022", 5);
-        universityApp.addGrade(179129, "pp-2022", 4.5);
+        universityApp.addGrade(5);
+        universityApp.addGrade(4.5);
 
         // when
         universityApp.printGradesForGroup("pp-2022");
@@ -257,10 +258,10 @@ class UniversityAppTest {
         universityApp.createGroup("pp-2022", "Podstawy Programowania", 1);
         universityApp.createGroup("po-2022", "Programowanie obiektowe", 1);
         universityApp.addStudentToGroup(179128, "pp-2022", "Marcin", "Abacki");
-        universityApp.addGrade(179128, "pp-2022", 5);
+        universityApp.addGrade(5);
 
         // when
-        universityApp.addGrade(179128, "pp-2022", 4);
+        universityApp.addGrade(4);
 
         // then
         assertThat(outContent.toString()).contains("Student o indeksie 179128 ma już wystawioną ocenę dla grupy pp-2022");
@@ -274,7 +275,7 @@ class UniversityAppTest {
         universityApp.createGroup("po-2022", "Programowanie obiektowe", 1);
 
         // when
-        universityApp.addGrade(179128, "pp-2022", 4);
+        universityApp.addGrade(4);
 
         // then
         assertThat(outContent.toString()).contains("Student o indeksie 179128 nie jest zapisany do grupy pp-2022");
@@ -297,8 +298,8 @@ class UniversityAppTest {
         universityApp.createGroup("po-2022", "Programowanie Obiektowe", 1);
         universityApp.addStudentToGroup(179128, "pp-2022", "Marcin", "Abacki");
         universityApp.addStudentToGroup(179128, "po-2022", "Marcin", "Abacki");
-        universityApp.addGrade(179128, "pp-2022", 5.0);
-        universityApp.addGrade(179128, "po-2022", 5.5);
+        universityApp.addGrade(5.0);
+        universityApp.addGrade(5.5);
 
         // when
         universityApp.printAllStudents();
